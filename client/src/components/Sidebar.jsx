@@ -30,11 +30,11 @@ import {
   AdminPanelSettingsOutlined,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
 import profileImg from "assets/profile.jpg";
 
-const navItems = [
+export const navItems = [
   {
     text: "Dashboard",
     icon: <HomeOutlined />,
@@ -79,6 +79,11 @@ function Sidebar({
   useEffect(() => {
     setActive(pathname.substring(1));
   }, [pathname]);
+  const linkStyle = {
+    textDecoration: "none",
+    color: "inherit",
+    fontWeight: "bold",
+  };
   return (
     <Box component="nav">
       {isSidebarOpen && (
@@ -103,7 +108,10 @@ function Sidebar({
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
                   <Typography variant="h4" fontWeight="bold">
-                    BlackCoffer
+                    <Link style={linkStyle} to="/">
+                      BlackCoffer
+                    </Link>
+                    {/* BlackCoffer */}
                   </Typography>
                 </Box>
                 {!isNonMobile && (

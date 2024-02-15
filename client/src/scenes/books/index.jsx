@@ -21,11 +21,8 @@ const Book = ({
   region,
   country,
   added,
-  intersity,
   likelihood,
   relevance,
-  sector,
-  insight,
 }) => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -82,7 +79,7 @@ const Book = ({
   );
 };
 
-function Products() {
+function Books() {
   const { data, isLoading } = useGetBooksQuery();
   const isNonMobile = useMediaQuery("(min-width:1000px)");
   // console.log("🚀 ~ Products ~ data:", data);
@@ -140,4 +137,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default Books;
